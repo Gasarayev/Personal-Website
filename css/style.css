@@ -1412,6 +1412,7 @@ footer p {
     background-image: url("../img/education_mobile.jpeg") !important;
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
   }
 }
 @media screen and (max-width: 767px) {
