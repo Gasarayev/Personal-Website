@@ -117,7 +117,7 @@ section:hover .section-head h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.668);
+  background-color: rgba(0, 0, 0, 0.452);
   z-index: 1;
 }
 
@@ -267,9 +267,7 @@ section:hover .section-head h2 {
 /* ----------------------------------------------------------------
      [ End Basics ]
 -----------------------------------------------------------------*/
-/* ----------------------------------------------------------------
-     [ 02 Start Buttons ]
------------------------------------------------------------------*/
+
 .butn {
   padding: 12px 34px;
   background: #fff;
@@ -367,9 +365,7 @@ section:hover .section-head h2 {
 /* ----------------------------------------------------------------
      [ End Buttons ]
 -----------------------------------------------------------------*/
-/* ----------------------------------------------------------------
-     [ 03 Start Navbar ]
------------------------------------------------------------------*/
+
 .navbar {
   position: absolute;
   left: 0;
@@ -422,11 +418,13 @@ section:hover .section-head h2 {
 /* ----------------------------------------------------------------
      [ End Navbar ]
 -----------------------------------------------------------------*/
-/* ----------------------------------------------------------------
-     [ 04 Start Header ]
------------------------------------------------------------------*/
+
 .header {
   min-height: 100vh;
+  background-image: url("../img/gsr-header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .header .caption .o-hidden {
   display: inline-block;
@@ -619,7 +617,7 @@ section:hover .section-head h2 {
   padding-bottom: 10px;
 }
 
-.skill-item .skill-item_experience h5{
+.skill-item .skill-item_experience h5 {
   font-size: 1rem;
 }
 
@@ -629,12 +627,12 @@ section:hover .section-head h2 {
   justify-content: space-between;
 }
 
-.skill-item .skill-item_experience div span{
+.skill-item .skill-item_experience div span {
   width: 150px;
   text-align: end;
 }
 
-.education_img_mobile{
+.education_img_mobile {
   display: none;
 }
 
@@ -947,7 +945,6 @@ section:hover .section-head h2 {
   font-style: italic;
   margin-bottom: 10px;
 }
-
 
 .posts-blog .item .info a {
   margin-right: 10px;
@@ -1331,9 +1328,6 @@ footer p {
 }
 
 /* ----------------------------------------------------------------
-     [ End Footer ]
------------------------------------------------------------------*/
-/* ----------------------------------------------------------------
  	 [ 11 Responsive ]
 -----------------------------------------------------------------*/
 @media screen and (max-width: 991px) {
@@ -1375,8 +1369,10 @@ footer p {
   }
 
   .header {
-    background-attachment: scroll !important;
-    background-position: 50% 0% !important;
+
+    background-image: url("../img/gasar.jpg");
+    background-position: 0% 100%;
+
   }
   .header .caption h2 {
     font-size: 30px;
@@ -1401,20 +1397,21 @@ footer p {
     justify-content: center;
   }
 
-  .education .education_img_desk{
+  .education .education_img_desk {
     display: none;
   }
 
- .education .education_img_mobile{
-  display: block;
-  height: 200px;
-  width: 100%;
+  .education .education_img_mobile {
+    display: block;
+    height: 200px;
+    width: 100%;
     background-image: url("../img/education_mobile.jpeg") !important;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
   }
 }
+
 @media screen and (max-width: 767px) {
   .mb-sm50 {
     margin-bottom: 50px;
