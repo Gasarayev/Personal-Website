@@ -407,6 +407,8 @@ section:hover .section-head h2 {
 }
 
 .logo {
+  width: 150px;
+  height: 80px;
   font-family: "Pacifico", cursive;
   font-weight: 400;
   font-size: 26px;
