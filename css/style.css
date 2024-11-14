@@ -463,10 +463,15 @@ section:hover .section-head h2 {
   padding: 100px 0;
 }
 .about .skills h6 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 10px;
 }
+
+.about .skills span{
+  font-size: 14px;
+}
+
 .about .skills .skill-progress {
   height: 8px;
   width: 100%;
@@ -505,7 +510,7 @@ section:hover .section-head h2 {
   letter-spacing: 8px;
   margin-bottom: 10px;
 }
-.about .content h4 {
+.about .content h3 {
   display: inline-block;
   font-size: 30px;
   font-weight: 600;
@@ -516,7 +521,7 @@ section:hover .section-head h2 {
   padding: 5px 10px;
   margin-bottom: 40px;
 }
-.about .content h5 {
+.about .content h4 {
   font-size: 18px;
   margin-bottom: 10px;
 }
@@ -626,10 +631,15 @@ section:hover .section-head h2 {
 .skill-item .skill-item_experience div span {
   width: 150px;
   text-align: end;
+  color: #c49b66;
 }
 
 .education_img_mobile {
   display: none;
+}
+
+.skill-item .skill-lang_experience .skill-lang_abt h6 span{
+  color: #c49b66;
 }
 
 /* ----------------------------------------------------------------
