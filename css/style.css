@@ -401,7 +401,7 @@ section:hover .section-head h2 {
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s, f-webkit-transform 0.5s;
   -webkit-transform: translateY(100px);
   transform: translateY(100px);
 }
@@ -638,51 +638,27 @@ section:hover .section-head h2 {
 .certificate .item {
   text-align: center;
   padding: 50px 20px;
+  margin: 10px;
   background: #0a0a0c;
+  height: 475px;
+  border-radius: 4px;
 }
-.certificate .item:hover .icon {
-  color: #fff;
+
+.certificate-img{
+  height: 295px;
 }
-.certificate .item:hover .icon:after {
-  background: #c49b66;
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-.certificate .item .icon {
-  display: inline-block;
-  color: #c49b66;
-  font-size: 45px;
-  width: 85px;
-  height: 85px;
-  line-height: 85px;
-  margin-bottom: 30px;
-  position: relative;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  z-index: 3;
-}
-.certificate .item .icon:after {
-  content: "";
-  width: 100%;
+
+.certificate-img img{
   height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  border-radius: 30px;
-  background: rgba(200, 200, 200, 0.05);
-  z-index: -1;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
 }
-.certificate .item h6 {
-  font-weight: 400;
+
+.certificate p span{
   font-size: 16px;
-  margin-bottom: 15px;
 }
-.certificate .item p {
-  font-size: 14px;
+
+.certificate h5 {
+  padding-top: 10px;
+  color: #c49b66;
 }
 
 /* ----------------------------------------------------------------
@@ -1483,6 +1459,10 @@ footer p {
 }
 
 @media screen and (max-width: 767px) {
+
+  .logo{
+    width: 100px;
+  }
   .mb-sm50 {
     margin-bottom: 50px;
   }
@@ -1517,6 +1497,16 @@ footer p {
   .portfolio .items.width2,
   .portfolio .items {
     width: 100%;
+  }
+
+  .certificate .item {
+
+    height: 380px;
+    
+  }
+
+  .certificate-img{
+    height: 200px;
   }
 }
 @media screen and (max-width: 480px) {
