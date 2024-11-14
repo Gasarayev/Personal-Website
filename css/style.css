@@ -897,7 +897,7 @@ section:hover .section-head h2 {
 }
 .blog .item .content h5 {
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 2.5;
   color: #fff;
 }
 .blog .item .content .more {
@@ -1507,6 +1507,8 @@ footer p {
   .portfolio .items.width2,
   .portfolio .items {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .certificate .item {
