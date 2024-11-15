@@ -33,7 +33,7 @@ h6 {
 p {
   font-size: 15px;
   color: #8f8f8f;
-  line-height: 1.8;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -465,7 +465,6 @@ section:hover .section-head h2 {
 .about .skills h6 {
   font-size: 16px;
   font-weight: 400;
-  margin-bottom: 10px;
 }
 
 .about .skills span{
@@ -1520,6 +1519,21 @@ footer p {
   .certificate-img{
     height: 200px;
   }
+  .blog .item .content{
+    padding: 10px 0;
+    bottom: -30px;
+
+  }
+
+  .blog .item .content h5{
+    line-height: 0;
+  }
+
+  .blog .item .content span{
+    font-size: 8px;
+    padding: 0 !important;
+  }
+  
 }
 @media screen and (max-width: 480px) {
   .header .caption h2 {

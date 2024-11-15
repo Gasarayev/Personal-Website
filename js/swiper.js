@@ -20,6 +20,9 @@ var swiper = new Swiper(".mySwiper", {
       spaceBetween: 20,
     },
   },
+  // autoplay: {
+  //   delay: 5000,
+  // },
 });
 
 var swiper = new Swiper(".mySwiperCertificate", {
