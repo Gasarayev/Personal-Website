@@ -3,18 +3,18 @@ $(function () {
 
   var wind = $(window);
 
-  // scrollIt
+  
   $.scrollIt({
-    upKey: 38, // key code to navigate to the next section
-    downKey: 40, // key code to navigate to the previous section
-    easing: "swing", // the easing function for animation
-    scrollTime: 600, // how long (in ms) the animation takes
-    activeClass: "active", // class given to the active nav element
-    onPageChange: null, // function(pageIndex) that is called when page is changed
-    topOffset: -80, // offste (in px) for fixed top navigation
+    upKey: 38,
+    downKey: 40, 
+    easing: "swing",
+    scrollTime: 600, 
+    activeClass: "active", 
+    onPageChange: null, 
+    topOffset: -80, 
   });
 
-  // navbar scrolling background
+
   wind.on("scroll", function () {
     var bodyScroll = wind.scrollTop(),
       navbar = $(".navbar");
@@ -26,7 +26,7 @@ $(function () {
     }
   });
 
-  // navbar scrolling background
+
   wind.on("scroll", function () {
     var bodyScroll = wind.scrollTop(),
       navLight = $(".nav-light"),
@@ -41,12 +41,12 @@ $(function () {
     }
   });
 
-  // close navbar-collapse when a  clicked
+
   $(".navbar-nav a").on("click", function () {
     $(".navbar-collapse").removeClass("show");
   });
 
-  // progress bar
+
   wind.on("scroll", function () {
     $(".skill-progress .progres").each(function () {
       var bottom_of_object = $(this).offset().top + $(this).outerHeight();
@@ -60,7 +60,7 @@ $(function () {
     });
   });
 
-  // sections background image from data background
+
   var pageSection = $(".bg-img, section");
   pageSection.each(function (indx) {
     if ($(this).attr("data-background")) {
@@ -72,11 +72,11 @@ $(function () {
   });
 });
 
-// === window When Loading === //
+
 
 $(window).on("load", function () {
   var wind = $(window);
 
-  // Preloader
+
   $(".loading").fadeOut(500);
 });
