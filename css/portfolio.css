@@ -1,74 +1,72 @@
-.portfolioPage{
-    margin: 120px 0;
+.portfolioPage {
+  margin: 120px 0;
 }
 
-.port_heading{
-    width: 100%;
-    text-align: center;
+.port_heading {
+  width: 100%;
+  text-align: center;
 }
 
-.port_heading h1{
-    font-size: 60px;
-    font-weight: 700;
-    letter-spacing: 2px;
+.port_heading h1 {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-.port_heading span{
-    color: #c49b66;
+.port_heading span {
+  color: #c49b66;
 }
 
-
-.port_project{
-    padding: 50px 0;
+.port_project {
+  padding: 50px 0;
 }
 
-.project_title h2{
-    text-align: end;
-    font-weight: 800;
-    font-family: inherit;
-    letter-spacing: 2px;
-    color: transparent;
+.project_title h2 {
+  text-align: end;
+  font-weight: 800;
+  font-family: inherit;
+  letter-spacing: 2px;
+  color: transparent;
 }
 
-
-.project_title h2 a{
-    -webkit-text-stroke: 1px #8f8f8f;
-    -webkit-transition: all 0.4s;
-    transition: all 0.4s;
+.project_title h2 a {
+  -webkit-text-stroke: 1px #8f8f8f;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
-.project_head h2 a:hover{
-    -webkit-text-stroke: 1px #c4b366;
+.project_head h2 a:hover {
+  -webkit-text-stroke: 1px #c4b366;
 }
 
-.project_title_reverse h2{
-    text-align: start;
+.project_title_reverse h2 {
+  text-align: start;
 }
 
-.port_project .project_image img{
-    border-radius: 10px;
+.port_project .project_image img {
+  border-radius: 10px;
 }
 
-.project_content{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.project_content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-.project_content p{
-    width: 400px;
-    font-size: 18px;
+.project_content p {
+  width: 400px;
+  font-size: 18px;
 }
-
 
 @media screen and (max-width: 767px) {
-    
-    .port_heading h1{
-        font-size: 40px;
-        
-    }
+  .port_heading h1 {
+    font-size: 40px;
+  }
 
+ .project_content{
+    padding-top: 20px;
+ }
 }
