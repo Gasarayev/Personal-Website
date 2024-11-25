@@ -74,17 +74,127 @@
     <!-- Core Style Css -->
     <link rel="stylesheet" href="../assets/css/style.css" />
 
-    <!-- <link rel="stylesheet" href="css/style.min.css"> -->
+    <!-- Portfolio Css -->
+    <link rel="stylesheet" href="../assets/css/portfolio.css" />
+
+
+    
   </head>
   <body>
     <header>
-      <h1>header</h1>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <!-- Logo -->
+          <a class="logo" href="/"> Gasar </a>
+  
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"><i class="fas fa-bars"></i></span>
+          </button>
+  
+          <!-- navbar links -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="/"
+            
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" data-scroll-nav="1"
+                  >Career</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" data-scroll-nav="4"
+                  >Certificates</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" data-scroll-nav="3"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" data-scroll-nav="5"
+                  >Portfolio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" data-scroll-nav="6"
+                  >Blog</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main><%- body %></main>
 
     <footer class="text-center">
-      <h1>footer</h1>
+      <div class="container">
+        <!-- Logo -->
+        <a class="logo" href="/index.html">
+          Gasar
+        </a>
+
+        <div class="social">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/share/AuPHpy6DNiXnNf8V/"
+            aria-label="Facebook"
+          >
+            <i class="fa-brands fa-square-facebook"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/emil-gasarayev-b14747223/"
+            aria-label="LinkedIn"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://github.com/Gasarayev"
+            aria-label="GitHub"
+          >
+            <i class="fa-brands fa-square-github"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/emilgasar/profilecard/?igsh=NmxvcjNkcjFqZWJ5"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-square-instagram"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://x.com/gasarayev?s=09"
+            aria-label="X (Twitter)"
+          >
+            <i class="fa-brands fa-square-x-twitter"></i>
+          </a>
+        </div>
+
+        <p>&copy; 2024 Emil Gasarayev.</p>
+      </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

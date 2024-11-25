@@ -73,10 +73,17 @@ section:hover .section-head h2 {
   width: 100% !important;
 }
 .bg-img {
+
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.education_img_desk{
+  /* height: 600px; */
+  background-image: url(../img/education.jpeg);
+}
+
 .bg-img:before {
   background-color: rgba(0, 0, 0, 0.452);
   bottom: 0;
@@ -332,6 +339,11 @@ section:hover .section-head h2 {
   height: 80px;
   padding: 15px 0;
   width: 150px;
+  color: #c49b66;
+  text-shadow: 0 0 0px #c49b66,   /* Daxili incə işıq */
+               0 0 0px #c49b66,  /* Orta işıq */
+               0 0 0px #ffbf80, 
+               0 0 0px #ffbf80;
 }
 .header {
   background-image: url(../img/gsr-header.jpg);
@@ -453,6 +465,8 @@ section:hover .section-head h2 {
 .about .content .social a:hover {
   color: #c49b66;
 }
+
+
 .skill-item .skill-item_exp li {
   font-size: 12px;
   padding-bottom: 10px;
@@ -703,6 +717,29 @@ section:hover .section-head h2 {
 .blog .item .content .more:hover {
   color: #c49b66;
 }
+
+.blog .blog_routing {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  width: 100%;
+}
+
+.blog .blog_routing a {
+  border: 1px solid #c49b66;
+  border-radius: 4px;
+  color: #c49b6690;
+  font-weight: 500;
+  padding: 10px;
+  transition: 0.5s;
+}
+.blog .blog_routing a:hover {
+  border: 1px solid #222;
+  color: #c49b66;
+  transition: 0.5s;
+}
+
+
 .contact .info {
   background-image: url(../img/map.png);
   background-position: 50%;
@@ -749,6 +786,8 @@ section:hover .section-head h2 {
 footer {
   padding: 80px 0;
 }
+
+
 footer .social a {
   color: #c49b66;
   height: 40px;
@@ -788,6 +827,7 @@ footer p {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 @media screen and (max-width: 991px) {
   .mb-md50 {
     margin-bottom: 50px;
