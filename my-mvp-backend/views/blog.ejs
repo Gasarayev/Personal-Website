@@ -1,38 +1,34 @@
 <% layout('layout') %>
-    <main>
-      <section class="blog section-padding bg-dark" data-scroll-index="6">
-        <div class="container">
-          <div class="row">
-            <div
-              class="section-head text-center col-lg-8 offset-lg-2 col-md-10 offset-md-1"
-            >
-              <h2>My Blog</h2>
-            </div>
-            <div class="clearfix full-width"></div>
-      
-            <% blogs.forEach(blog => { %>
-              <div class="col-lg-4">
-                <div class="item mb-md50">
-                  <div class="post-img position-re o-hidden">
-                    <img src="assets/img/blog/01.jpg" alt="" />
-                  </div>
-                  <div class="content">
-                    <span class="data">
-                      <span>Test</span>
-                      <span>/</span>
-                      <span>2024</span>
-                    </span>
-                    <h5>
-                      <a href="/blog/<%= blog.id %>" class="undecro"><%= blog.title %></a>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            <% }) %>
-      
-          
-            
-          </div>
+<main>
+  <section class="blog section-padding bg-dark" data-scroll-index="6">
+    <div class="container">
+      <div class="row">
+        <div class="section-head text-center col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+          <h2>My Blog</h2>
         </div>
-      </section>
-    </main>
+        <div class="clearfix full-width"></div>
+
+        <% blogs.forEach(blog => { %>
+          <div class="col-lg-4">
+            <div class="item mb-md50">
+              <div class="post-img position-re o-hidden">
+                <img src="assets/img/blog/01.jpg" alt="" />
+              </div>
+              <div class="content">
+                <span class="data">
+                  <span><%= new Date(blog.publishedAt).getFullYear() %></span>
+                  <span>/</span>
+                  <span><%= new Date(blog.publishedAt).getMonth() + 1 %></span>
+                </span>
+                <h5>
+                  <a href="/blog/<%= blog.title %>" class="undecro"><%= blog.title %></a>
+                </h5>
+                <p><%- blog.content.split(' ').slice(0, 10).join(' ') %>...</p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>

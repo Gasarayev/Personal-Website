@@ -688,15 +688,7 @@ section:hover .section-head h2 {
   margin-bottom: 10px;
   text-transform: uppercase;
 }
-.blog .item .content .data a {
-  margin-right: 10px;
-  position: relative;
-}
-.blog .item .content .data a:after {
-  content: "/";
-  margin-left: 10px;
-  position: relative;
-}
+
 .blog .item .content .data a:last-child {
   margin-right: 0;
 }
@@ -718,10 +710,14 @@ section:hover .section-head h2 {
   color: #c49b66;
 }
 
+.blog .item .content p{
+  font-size: 14px;
+}
+
 .blog .blog_routing {
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 40px;
   width: 100%;
 }
 
