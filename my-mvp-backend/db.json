@@ -2,76 +2,65 @@
   "blogs": [
     {
       "id": 1,
+      "title": "Blog Yazısı Başlığı",
+      "image1": "image1.jpg",
+      "formattedTitle": "frontend-test",
+      "content": "Burada mətn olacaq...",
+      "subtitles": [
+        {
+          "subtitle": "Alt Başlıq 1",
+          "content": "Alt başlıq mətni..."
+        },
+        {
+          "subtitle": "Alt Başlıq 2",
+          "content": "Başqa bir alt başlıq mətni..."
+        }
+      ],
+      "faq": [
+        {
+          "question": "FAQ sualı 1?",
+          "answer": "FAQ cavabı 1."
+        },
+        {
+          "question": "FAQ sualı 2?",
+          "answer": "FAQ cavabı 2."
+        }
+      ]
+    },
+    {
+      "id": 1732625646240,
       "title": "Frontend Proqramlaşdırma",
-      "content": "Frontend proqramlaşdırma, istifadəçi ilə qarşılıqlı əlaqə quran və istifadəçilərin bir veb səhifəsi və ya tətbiqinə daxil olduqda gördükləri bütün elementləri qurmağa və inkişaf etdirməyə yönəlmiş bir sahədir. Bu, veb inkişafının ən əsas hissələrindən biridir və bir tətbiqin və ya veb saytın interfeysini və istifadəçi təcrübəsini (UX) yaradır. Frontend proqramlaşdırma, HTML, CSS və JavaScript kimi texnologiyaları istifadə edərək, veb saytların vizual tərtibatını və interaktivliyini təmin edir.",
-      "image1": "../assets/img/blog/01.jpg",
-      "subtitle1": "Frontend Proqramlaşdırma Nədir?",
-      "content1": "Front-end proqramlaşdırma, istifadəçilərə vizual olaraq təqdim edilən hər şeyin yaradılması və idarə edilməsini əhatə edir. Bir veb saytın və ya tətbiqin istifadəçi interfeysi (UI) frontend proqramlaşdırması ilə qurulur. Bu, səhifələrin strukturu, rəngləri, şriftləri, animasiyaları, butonların yerləşməsi və istifadəçi ilə qarşılıqlı əlaqənin idarə edilməsi kimi bütün dizayn və məzmunu əhatə edir. Front-end inkişafı aşağıdakı əsas texnologiyaları istifadə edir:",
-      "subtitle2": "HTML (HyperText Markup Language)",
-      "content2": "HTML, veb səhifələrinin əsas strukturunu təşkil edən işarə dilidir. HTML sayəsində veb səhifələrə başlıqlar, paragraflar, şəkillər, linklər və digər elementlər əlavə olunur. Veb səhifənin məzmununun düzgün təqdim edilməsi üçün HTML əsas rol oynayır..",
-      "subtitle3": "2. CSS (Cascading Style Sheets)",
-      "content3": "CSS, HTML ilə yaradılmış məzmunu vizual olaraq tərtib edir. CSS istifadə edərək veb səhifələrinin rəngləri, şriftləri, düzülüşü və digər estetik xüsusiyyətləri təyin edilir. CSS həmçinin veb səhifələrinin responsiv (mobil cihazlara uyğun) olmasını təmin edir, bu da istifadəçilərin müxtəlif cihazlarda asanlıqla saytınıza daxil olmasına imkan verir.",
-      "image2": "../assets/img/blog/01.jpg",
-      "subtitle4": "JavaScript",
-      "content4": "JavaScript, veb səhifələrinə interaktivlik qatmaq üçün istifadə olunan əsas proqramlaşdırma dilidir. Bu dil vasitəsilə istifadəçilər üçün dinamik xüsusiyyətlər əlavə etmək mümkündür, məsələn, forma doğrulama, səhifə yeniləmələri, animasiyalar və interaktiv məzmun. JavaScript, istifadəçinin qarşılıqlı əlaqəsindən sonra səhifə elementlərini dəyişdirmək üçün istifadə olunur, məsələn, istifadəçi bir düyməyə basdıqda yeni məlumatların göstərilməsi.",
+      "formattedTitle": "frontend-proqramlasdirma",
+      "content": "<p>Frontend proqramlaşdırma, istifadəçi ilə qarşılıqlı əlaqə quran və istifadəçilərin bir veb səhifəsi və ya tətbiqinə daxil olduqda gördükləri bütün elementləri qurmağa və inkişaf etdirməyə yönəlmiş bir sahədir. Bu, veb inkişafının ən əsas hissələrindən biridir və bir tətbiqin və ya veb saytın interfeysini və istifadəçi təcrübəsini (UX) yaradır. Frontend proqramlaşdırma, HTML, CSS və JavaScript kimi texnologiyaları istifadə edərək, veb saytların vizual tərtibatını və interaktivliyini təmin edir.</p>",
+      "image1": null,
+      "subtitles": [
+        {
+          "subtitle": "Frontend Proqramlaşdırma Nədir?",
+          "content": "<p><a href=\"https://shaftali.az/\">Front-end proqramlaşdırma</a>, istifadəçilərə vizual olaraq təqdim edilən hər şeyin yaradılması və idarə edilməsini əhatə edir. Bir veb saytın və ya tətbiqin istifadəçi interfeysi (UI) frontend proqramlaşdırması ilə qurulur. Bu, səhifələrin strukturu, rəngləri, şriftləri, animasiyaları, butonların yerləşməsi və istifadəçi ilə qarşılıqlı əlaqənin idarə edilməsi kimi bütün dizayn və məzmunu əhatə edir. Front-end inkişafı aşağıdakı əsas texnologiyaları istifadə edir:</p>"
+        },
+        {
+          "subtitle": "HTML (HyperText Markup Language)",
+          "content": "<p>HTML, veb səhifələrinin əsas strukturunu təşkil edən işarə dilidir. HTML sayəsində veb səhifələrə başlıqlar, paragraflar, şəkillər, linklər və digər elementlər əlavə olunur. Veb səhifənin məzmununun düzgün təqdim edilməsi üçün HTML əsas rol oynayır.</p>"
+        },
+        {
+          "subtitle": "2. CSS (Cascading Style Sheets)",
+          "content": "<p>CSS, HTML ilə yaradılmış məzmunu vizual olaraq tərtib edir. CSS istifadə edərək veb səhifələrinin rəngləri, şriftləri, düzülüşü və digər estetik xüsusiyyətləri təyin edilir. CSS həmçinin veb səhifələrinin responsiv (mobil cihazlara uyğun) olmasını təmin edir, bu da istifadəçilərin müxtəlif cihazlarda asanlıqla saytınıza daxil olmasına imkan verir.</p>"
+        },
+        {
+          "subtitle": "JavaScript",
+          "content": "<p>JavaScript, veb səhifələrinə interaktivlik qatmaq üçün istifadə olunan əsas proqramlaşdırma dilidir. Bu dil vasitəsilə istifadəçilər üçün dinamik xüsusiyyətlər əlavə etmək mümkündür, məsələn, forma doğrulama, səhifə yeniləmələri, animasiyalar və interaktiv məzmun. JavaScript, istifadəçinin qarşılıqlı əlaqəsindən sonra səhifə elementlərini dəyişdirmək üçün istifadə olunur, məsələn, istifadəçi bir düyməyə basdıqda yeni məlumatların göstərilməsi.</p>"
+        },
+        {
+          "subtitle": "Conclusion",
+          "content": "<p>Frontend proqramlaşdırma, müasir veb inkişafının ayrılmaz bir hissəsidir və veb saytların vizual cəhətdən estetik və funksional olmasını təmin edir. HTML, CSS və JavaScript istifadə edərək inkişafçılar dinamik və interaktiv veb səhifələr yaradırlar. Bu sahə sürətlə inkişaf edir və inkişafçılar üçün yeni alətlər və çərçivələr təklif edir, beləliklə, onlar daha yaxşı və istifadəçi dostu veb tətbiqləri yarada bilirlər. Mənbə: <a href=\"https://www.freecodecamp.org/\">freeCodeCamp</a></p>"
+        }
+      ],
       "faq": [
         {
           "question": "What is this blog about?",
-          "answer": "This blog covers the basics of how to write effective content."
-        },
-        {
-          "question": "How can I improve my writing skills?",
-          "answer": "Practice writing every day and read widely."
+          "answer": "This blog covers the basics of how to write effective content"
         }
-      ],
-      "conclusion": "Frontend proqramlaşdırma, müasir veb inkişafının ayrılmaz bir hissəsidir və veb saytların vizual cəhətdən estetik və funksional olmasını təmin edir. HTML, CSS və JavaScript istifadə edərək inkişafçılar dinamik və interaktiv veb səhifələr yaradırlar. Bu sahə sürətlə inkişaf edir və inkişafçılar üçün yeni alətlər və çərçivələr təklif edir, beləliklə, onlar daha yaxşı və istifadəçi dostu veb tətbiqləri yarada bilirlər. Mənbə: freeCodeCamp",
-      "publishedAt": "2024-11-25T10:00:00Z"
-    },
-    {
-      "id": 2,
-      "title": "Second Blog",
-      "content": "Content of the second blog.",
-      "image1": "../assets/img/blog/01.jpg",
-      "subtitle1": "Introduction to the second blog",
-      "content1": "Introduction content for the second blog.",
-      "subtitle2": "Key concepts discussed",
-      "content2": "Details about the key concepts.",
-      "subtitle3": "Challenges faced",
-      "content3": "Content discussing challenges.",
-      "image2": "../assets/img/blog/01.jpg",
-      "subtitle4": "Final thoughts",
-      "content4": "Content discussing final thoughts.",
-      "faq": [
-        {
-          "question": "What are the main takeaways from this blog?",
-          "answer": "The main takeaways are how to approach writing effectively."
-        }
-      ],
-      "conclusion": "Conclusion of the second blog.",
-      "publishedAt": "2024-11-25T10:00:00Z"
-    },
-    {
-      "id": 3,
-      "title": "Third Blog",
-      "content": "Content of the third blog.",
-      "subtitle1": "Getting Started with Third Blog",
-      "content1": "Introduction to the third blog.",
-      "image1": "../assets/img/blog/01.jpg",
-      "subtitle2": "Exploring key points",
-      "content2": "Details on the key points discussed.",
-      "subtitle3": "Reflection on the subject",
-      "content3": "Content reflecting on the subject.",
-      "image2": "../assets/img/blog/01.jpg",
-      "subtitle4": "Conclusion and takeaways",
-      "content4": "Content discussing conclusions and takeaways.",
-      "faq": [
-        {
-          "question": "Why is this blog important?",
-          "answer": "This blog provides in-depth insights into effective writing techniques."
-        }
-      ],
-      "conclusion": "Conclusion of the third blog.",
-      "publishedAt": "2024-11-25T10:00:00Z"
+      ]
     }
   ]
 }

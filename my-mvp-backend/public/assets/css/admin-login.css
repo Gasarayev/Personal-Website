@@ -1,0 +1,91 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: hsl(0, 0%, 0%);
+    color: #c49b66;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Formanın tərtibatı */
+  form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Başlıq */
+  h1 {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #c49b66;
+    margin-bottom: 20px;
+  }
+  
+  /* Etiketlər və giriş sahəsi */
+  label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+    color: #c49b66;
+  }
+  
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #c49b66;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #c49b66;
+    background-color: #fff;
+  }
+  
+  /* Xəta mesajı */
+  p {
+    font-size: 14px;
+    color: red;
+    margin: 0;
+  }
+  
+  /* Giriş düyməsi */
+  button {
+    background-color: #c49b66;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #a07a4d;
+  }
+  
+  /* Cihazlara uyğun tərtibat */
+  @media (max-width: 600px) {
+    form {
+      width: 90%;
+    }
+  }

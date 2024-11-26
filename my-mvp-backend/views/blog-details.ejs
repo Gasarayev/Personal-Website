@@ -1,47 +1,29 @@
 <% layout('layout') %>
 <main>
   <section class="blog-details section-padding bg-dark" data-scroll-index="6">
-    <div class="container">
-      <div class="row">
-        <div class="section-head text-center col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-          <h2><%= blog.title %></h2>
+    <h1><%- title %></h1> <!-- Blog Title -->
+    <p><%- metaDescription %></p> <!-- Meta description or summary -->
+    <div class="blog-content">
+      <%- content %> <!-- Full blog content -->
+      
+      <% if (subtitles && subtitles.length > 0) { %>
+        <div class="subtitles">
+          <% subtitles.forEach(function(subtitle) { %>
+            <h3><%- subtitle.subtitle %></h3>
+            <p><%- subtitle.content %></p>
+          <% }); %>
         </div>
+      <% } %>
 
-        <div class="col-lg-12">
-          <div class="post-content">
-            <p><%- blog.content %></p>
-
-            <div class="post-img">
-              <img src="<%= blog.image1 %>" alt="<%= blog.title %>">
-            </div>
-
-            <h3><%= blog.subtitle1 %></h3>
-            <p><%- blog.content1 %></p>
-
-            <h3><%= blog.subtitle2 %></h3>
-            <p><%- blog.content2 %></p>
-
-            <h3><%= blog.subtitle3 %></h3>
-            <p><%= blog.content3 %></p>
-            <div class="post-img">
-              <img src="<%= blog.image2 %>" alt="<%= blog.title %>">
-            </div>
-            <h3><%= blog.subtitle4 %></h3>
-            <p><%- blog.content4 %></p>
-
-            <h3>Frequently Asked Questions</h3>
-            <% blog.faq.forEach(faq => { %>
-              <div class="faq-item">
-                <h6><%= faq.question %></h6>
-                <p><%= faq.answer %></p>
-              </div>
-            <% }) %>
-
-            <h3>Conclusion</h3>
-            <p><%- blog.conclusion %></p>
-          </div>
+      <% if (faq && faq.length > 0) { %>
+        <div class="faq">
+          <% faq.forEach(function(f) { %>
+            <h4><%- f.question %></h4>
+            <p><%- f.answer %></p>
+          <% }); %>
         </div>
-      </div>
+      <% } %>
+      
     </div>
   </section>
 </main>

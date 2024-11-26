@@ -4,7 +4,7 @@
     color: #dcdcdc;
   }
   
-  .blog-details h2 {
+  .blog-details h1 {
     font-size: 2.5em;
     color: #fff;
     text-align: center;
@@ -85,7 +85,7 @@
   }
   
   @media (max-width: 768px) {
-    .blog-details h2 {
+    .blog-details h1 {
       font-size: 2em;
     }
   

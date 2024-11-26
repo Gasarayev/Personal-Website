@@ -1,0 +1,188 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Blog Yazısı Yarat</title>
+    <link rel="stylesheet" href="../assets/css/admin-panel.css" />
+
+    <!-- CKEditor Skriptini əlavə et -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
+  </head>
+  <body>
+    <main>
+      <section
+        class="admin-panel section-padding bg-dark"
+        data-scroll-index="6"
+      >
+        <div class="container">
+          <div class="row">
+            <div
+              class="section-head text-center col-lg-8 offset-lg-2 col-md-10 offset-md-1"
+            >
+              <h1>Blog Yazısı Yarat</h1>
+            </div>
+
+            <div class="col-lg-12">
+              <form
+                action="/admin/blog/create"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <div class="form-group">
+                  <label for="title">Başlıq</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="image1">Şəkil 1</label>
+                  <input
+                    type="file"
+                    id="image1"
+                    name="image1"
+                    class="form-control"
+                    accept="image/*"
+                  />
+                </div>
+
+                <!-- CKEditor ilə Mətn Redaktoru -->
+                <div class="form-group">
+                  <label for="content">Mətn</label>
+                  <textarea
+                    id="content"
+                    name="content"
+                    class="form-control"
+                    rows="10"
+                  ></textarea>
+                </div>
+
+                <!-- Alt Başlıqlar və Mətinlər (h2 olacaq) -->
+                <div id="subtitles-container">
+                  <div class="form-group">
+                    <label for="subtitle1">Alt Başlıq 1 (h2)</label>
+                    <input
+                      type="text"
+                      name="subtitle[]"
+                      class="form-control"
+                      placeholder="Alt Başlıq"
+                    />
+                    <textarea
+                      name="content_subtitle[]"
+                      class="form-control"
+                      placeholder="Alt Başlıq Mətn"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <button type="button" id="add-subtitle" class="btn btn-info">
+                  Alt Başlıq Əlavə et
+                </button>
+
+                <!-- FAQ bölməsi -->
+                <div class="form-group">
+                  <label for="faq">Tez-tez Verilən Suallar</label>
+                  <div id="faq-container">
+                    <div class="faq-item">
+                      <input
+                        type="text"
+                        name="faq[question][]"
+                        class="form-control"
+                        placeholder="Suallar"
+                      />
+                      <textarea
+                        name="faq[answer][]"
+                        class="form-control"
+                        placeholder="Cavablar"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <button type="button" id="add-faq" class="btn btn-info">
+                    FAQ əlavə et
+                  </button>
+                </div>
+
+                <button type="submit" class="btn btn-success">Yayımla</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let subtitleCounter = 1;
+      let faqCounter = 1;
+
+      // CKEditor-u inicializasiya et
+      document.querySelectorAll("textarea").forEach((textarea) => {
+        textarea.style.display = "block"; // textarea-nı göstər
+      });
+      ClassicEditor.create(document.querySelector("#content")).catch(
+        (error) => {
+          console.error(error);
+        }
+      );
+
+      // Alt başlıq sahələrində CKEditor-u aktivləşdir
+      const subtitleEditors = document.querySelectorAll(
+        'textarea[name="content_subtitle[]"]'
+      );
+      subtitleEditors.forEach((textarea) => {
+        ClassicEditor.create(textarea).catch((error) => {
+          console.error(error);
+        });
+      });
+
+      // FAQ bölməsi əlavə et
+      document.getElementById("add-faq").addEventListener("click", function () {
+        const faqContainer = document.getElementById("faq-container");
+        const faqItem = document.createElement("div");
+        faqItem.classList.add("faq-item");
+        faqItem.innerHTML = `
+            <input type="text" name="faq[question][]" class="form-control" placeholder="Suallar">
+            <textarea name="faq[answer][]" class="form-control" placeholder="Cavablar"></textarea>
+          `;
+        faqContainer.appendChild(faqItem);
+
+        // Yeni FAQ üçün CKEditor-u tətbiq et
+        const newFaqTextarea = faqItem.querySelector(
+          'textarea[name="faq[answer][]"]'
+        );
+        ClassicEditor.create(newFaqTextarea).catch((error) => {
+          console.error(error);
+        });
+      });
+
+      // Alt başlıq əlavə et
+      document
+        .getElementById("add-subtitle")
+        .addEventListener("click", function () {
+          const subtitleContainer = document.getElementById(
+            "subtitles-container"
+          );
+          const subtitleItem = document.createElement("div");
+          subtitleItem.classList.add("form-group");
+          const subtitleId = `subtitle-${subtitleCounter++}`;
+          subtitleItem.id = subtitleId;
+          subtitleItem.innerHTML = `
+            <label for="subtitle">Alt Başlıq (h2)</label>
+            <input type="text" name="subtitle[]" class="form-control" placeholder="Alt Başlıq">
+            <textarea name="content_subtitle[]" class="form-control" placeholder="Alt Başlıq Mətn"></textarea>
+          `;
+          subtitleContainer.appendChild(subtitleItem);
+
+          // Yeni alt başlıq üçün CKEditor-u tətbiq et
+          const newSubtitleTextarea = subtitleItem.querySelector(
+            'textarea[name="content_subtitle[]"]'
+          );
+          ClassicEditor.create(newSubtitleTextarea).catch((error) => {
+            console.error(error);
+          });
+        });
+    </script>
+  </body>
+</html>

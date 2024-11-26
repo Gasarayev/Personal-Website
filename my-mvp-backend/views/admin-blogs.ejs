@@ -1,0 +1,16 @@
+<!-- views/admin-blogs.ejs -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Blog Paneli</title>
+</head>
+<body>
+  <h1>Admin Blog Yazıları</h1>
+  <ul>
+    <% blogs.forEach(function(blog) { %>
+      <li><%= blog.title %> - <%= blog.content %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
