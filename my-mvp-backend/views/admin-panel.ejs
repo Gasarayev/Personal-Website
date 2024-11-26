@@ -37,6 +37,16 @@
                     class="form-control"
                   />
                 </div>
+                <div class="form-group">
+                  <label for="meta-description">Meta Description</label>
+                  <textarea
+                    id="meta-description"
+                    name="meta_description"
+                    class="form-control"
+                    placeholder="Meta Description"
+                    rows="3"
+                  ></textarea>
+                </div>
 
                 <div class="form-group">
                   <label for="image1">Şəkil 1</label>
@@ -82,6 +92,19 @@
                   Alt Başlıq Əlavə et
                 </button>
 
+
+                <div class="form-group">
+                  <label for="youtube-link">YouTube Video Linki</label>
+                  <input
+                    type="text"
+                    id="youtube-link"
+                    name="youtube_link"
+                    class="form-control"
+                    placeholder="YouTube Video URL"
+                  />
+                </div>
+                
+
                 <!-- FAQ bölməsi -->
                 <div class="form-group">
                   <label for="faq">Tez-tez Verilən Suallar</label>
@@ -119,7 +142,7 @@
 
       // CKEditor-u inicializasiya et
       document.querySelectorAll("textarea").forEach((textarea) => {
-        textarea.style.display = "block"; // textarea-nı göstər
+        textarea.style.display = "block"; 
       });
       ClassicEditor.create(document.querySelector("#content")).catch(
         (error) => {

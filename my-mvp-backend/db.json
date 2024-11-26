@@ -32,7 +32,9 @@
       "title": "Frontend Proqramlaşdırma",
       "formattedTitle": "frontend-proqramlasdirma",
       "content": "<p>Frontend proqramlaşdırma, istifadəçi ilə qarşılıqlı əlaqə quran və istifadəçilərin bir veb səhifəsi və ya tətbiqinə daxil olduqda gördükləri bütün elementləri qurmağa və inkişaf etdirməyə yönəlmiş bir sahədir. Bu, veb inkişafının ən əsas hissələrindən biridir və bir tətbiqin və ya veb saytın interfeysini və istifadəçi təcrübəsini (UX) yaradır. Frontend proqramlaşdırma, HTML, CSS və JavaScript kimi texnologiyaları istifadə edərək, veb saytların vizual tərtibatını və interaktivliyini təmin edir.</p>",
-      "image1": null,
+      "image1": "frontendBlog.png",
+      "youtube_link": "https://www.youtube.com/watch?v=-TLwGg4b5n0",
+      "metaDescription": "Frontend proqramlaşdırma, istifadəçi ilə qarşılıqlı əlaqə quran və istifadəçilərin bir veb səhifəsi və ya tətbiqinə daxil olduqda gördükləri bütün elementləri qurmağa və inkişaf etdirməyə yönəlmiş bir sahədir.",
       "subtitles": [
         {
           "subtitle": "Frontend Proqramlaşdırma Nədir?",

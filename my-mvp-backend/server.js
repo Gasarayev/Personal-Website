@@ -14,6 +14,8 @@ const PORT = 3000;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", engine);
+app.use(express.static(path.join(__dirname, "public")));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
@@ -25,13 +27,19 @@ app.use(
   })
 );
 
-// Multer configuration for file uploads
+// Multer konfiqurasiyası
+const uploadDirectory = path.join(__dirname, "uploads");
+
+if (!fs.existsSync(uploadDirectory)) {
+  fs.mkdirSync(uploadDirectory);
+}
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/");
+    cb(null, uploadDirectory);
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
+    cb(null, file.originalname);
   },
 });
 const upload = multer({ storage: storage });
@@ -45,7 +53,9 @@ function getBlogs() {
 }
 
 function formatTitleForUrl(title) {
+  if (!title) return '';
   return title
+
     .toLowerCase()
     .replace(/[ş]/g, 's')
     .replace(/[ə]/g, 'e')  
@@ -108,6 +118,8 @@ app.get("/blog", (req, res) => {
     blogs,
     canonicalUrl,
   });
+
+  
 });
 
 // Blog Details Route
@@ -117,14 +129,16 @@ app.get("/blog/:title", (req, res) => {
   const blog = blogs.find(b =>
     b.formattedTitle === req.params.title
   );
-  
+
   if (blog) {
-    const metaDescription = blog.content.slice(3, 163);
+    const shortMetaDescription = blog.metaDescription.substring(0, 160);
     res.render("blog-details", {
       title: blog.title,
-      metaDescription: metaDescription,
       content: blog.content,
       subtitles: blog.subtitles,
+      image1: blog.image1,
+      metaDescription: shortMetaDescription,
+      youtube_link: blog.youtube_link,
       faq: blog.faq,
       canonicalUrl,
       metaKeywords: "Blog, Emil Gasarayev, Yazılar",
@@ -173,9 +187,11 @@ app.get("/admin", (req, res) => {
   }
 });
 
+
+
 // Blog Creation Route for Admin
 app.post("/admin/blog/create", upload.single('image1'), (req, res) => {
-  const { title, content, subtitle, content_subtitle, faq } = req.body;
+  const { title, content, subtitle, content_subtitle, faq, youtube_link, meta_description } = req.body;
   const image = req.file ? req.file.filename : null;
 
   const formattedTitle = formatTitleForUrl(title);
@@ -184,8 +200,10 @@ app.post("/admin/blog/create", upload.single('image1'), (req, res) => {
     id: Date.now(),
     title,
     formattedTitle,
+    metaDescription: meta_description,
     content,
     image1: image,
+    youtube_link,
     subtitles: subtitle.map((sub, index) => ({
       subtitle: sub,
       content: content_subtitle[index],
