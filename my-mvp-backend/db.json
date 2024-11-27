@@ -1,33 +1,6 @@
 {
   "blogs": [
     {
-      "id": 1,
-      "title": "Blog Yazısı Başlığı",
-      "image1": "image1.jpg",
-      "formattedTitle": "frontend-test",
-      "content": "Burada mətn olacaq...",
-      "subtitles": [
-        {
-          "subtitle": "Alt Başlıq 1",
-          "content": "Alt başlıq mətni..."
-        },
-        {
-          "subtitle": "Alt Başlıq 2",
-          "content": "Başqa bir alt başlıq mətni..."
-        }
-      ],
-      "faq": [
-        {
-          "question": "FAQ sualı 1?",
-          "answer": "FAQ cavabı 1."
-        },
-        {
-          "question": "FAQ sualı 2?",
-          "answer": "FAQ cavabı 2."
-        }
-      ]
-    },
-    {
       "id": 1732625646240,
       "title": "Frontend Proqramlaşdırma",
       "formattedTitle": "frontend-proqramlasdirma",

@@ -3,9 +3,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Panel - Blog Yazısı Yarat</title>
+    <link rel="canonical" href="<%= canonicalUrl %>">
     <link rel="stylesheet" href="../assets/css/admin-panel.css" />
+    <meta name="robots" content="noindex, nofollow">
 
-    <!-- CKEditor Skriptini əlavə et -->
     <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
   </head>
   <body>
@@ -59,7 +60,7 @@
                   />
                 </div>
 
-                <!-- CKEditor ilə Mətn Redaktoru -->
+           
                 <div class="form-group">
                   <label for="content">Mətn</label>
                   <textarea
@@ -70,7 +71,7 @@
                   ></textarea>
                 </div>
 
-                <!-- Alt Başlıqlar və Mətinlər (h2 olacaq) -->
+              
                 <div id="subtitles-container">
                   <div class="form-group">
                     <label for="subtitle1">Alt Başlıq 1 (h2)</label>
@@ -105,7 +106,6 @@
                 </div>
                 
 
-                <!-- FAQ bölməsi -->
                 <div class="form-group">
                   <label for="faq">Tez-tez Verilən Suallar</label>
                   <div id="faq-container">
@@ -140,7 +140,6 @@
       let subtitleCounter = 1;
       let faqCounter = 1;
 
-      // CKEditor-u inicializasiya et
       document.querySelectorAll("textarea").forEach((textarea) => {
         textarea.style.display = "block"; 
       });
@@ -150,7 +149,6 @@
         }
       );
 
-      // Alt başlıq sahələrində CKEditor-u aktivləşdir
       const subtitleEditors = document.querySelectorAll(
         'textarea[name="content_subtitle[]"]'
       );
@@ -160,7 +158,6 @@
         });
       });
 
-      // FAQ bölməsi əlavə et
       document.getElementById("add-faq").addEventListener("click", function () {
         const faqContainer = document.getElementById("faq-container");
         const faqItem = document.createElement("div");
@@ -171,7 +168,6 @@
           `;
         faqContainer.appendChild(faqItem);
 
-        // Yeni FAQ üçün CKEditor-u tətbiq et
         const newFaqTextarea = faqItem.querySelector(
           'textarea[name="faq[answer][]"]'
         );
@@ -180,7 +176,6 @@
         });
       });
 
-      // Alt başlıq əlavə et
       document
         .getElementById("add-subtitle")
         .addEventListener("click", function () {
@@ -198,7 +193,6 @@
           `;
           subtitleContainer.appendChild(subtitleItem);
 
-          // Yeni alt başlıq üçün CKEditor-u tətbiq et
           const newSubtitleTextarea = subtitleItem.querySelector(
             'textarea[name="content_subtitle[]"]'
           );

@@ -14,7 +14,7 @@
 }
 
 .port_heading span {
-  color: #c49b66;
+  color: #F0FFAD;
 }
 
 .port_project {
@@ -36,7 +36,7 @@
 }
 
 .project_head h2 a:hover {
-  -webkit-text-stroke: 1px #c4b366;
+  -webkit-text-stroke: 1px #F0FFAD;
 }
 
 .project_title_reverse h2 {

@@ -16,7 +16,6 @@ body {
     flex-direction: column;
   }
   
-  /* Formanın tərtibatı */
   form {
     background-color: white;
     padding: 20px;
@@ -26,7 +25,6 @@ body {
     width: 100%;
   }
   
-  /* Başlıq */
   h1 {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
@@ -34,7 +32,6 @@ body {
     margin-bottom: 20px;
   }
   
-  /* Etiketlər və giriş sahəsi */
   label {
     font-size: 16px;
     display: block;
@@ -59,14 +56,12 @@ body {
     background-color: #fff;
   }
   
-  /* Xəta mesajı */
   p {
     font-size: 14px;
     color: red;
     margin: 0;
   }
   
-  /* Giriş düyməsi */
   button {
     background-color: #c49b66;
     color: white;
@@ -83,7 +78,6 @@ body {
     background-color: #a07a4d;
   }
   
-  /* Cihazlara uyğun tərtibat */
   @media (max-width: 600px) {
     form {
       width: 90%;

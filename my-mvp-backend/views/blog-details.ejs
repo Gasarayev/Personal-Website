@@ -1,17 +1,15 @@
 <% layout('layout') %>
-<main>
-  <section class="blog-details section-padding bg-dark" data-scroll-index="6">
+<main class="blog_main">
+  <section class="blog-details section-padding">
     <h1><%- title %></h1>
-    <!-- Blog Title -->
     <p><%- content %></p>
 
-    <!-- Meta description or summary -->
     <div class="blog-content">
 
       <div>
         <img src="/uploads/<%- image1 %>" alt="<%- image1 %>" />
       </div>
-      <%- content %> <% if (subtitles && subtitles.length > 0) { %>
+       <% if (subtitles && subtitles.length > 0) { %>
       <div class="subtitles">
         <% subtitles.forEach(function(subtitle) { %>
         <h3><%- subtitle.subtitle %></h3>
