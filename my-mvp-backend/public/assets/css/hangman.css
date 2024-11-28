@@ -129,3 +129,63 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 900px) {
+  .letters-hangman {
+    width: 100%;
+    height: auto;
+  }
+
+  .hangman-section {
+    width: 100%;
+  }
+
+  .secret-hangman {
+    width: 100%;
+  }
+
+  .let {
+    height: 30px;
+  }
+  .time-hangman {
+    font-size: 22px;
+    height: 40px;
+    width: 120px;
+    border: 5px solid red;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .port_heading h1 {
+    font-size: 30px;
+    margin: 0;
+  }
+
+  .animation-hangman {
+    width: 90%;
+    height: 220px;
+  }
+
+  .right-hangman h3 {
+    color: #fff;
+    font-size: 22px;
+  }
+  .letters-hangman {
+    width: 350px;
+    height: 145px;
+  }
+  .letter {
+    width: 30px;
+    height: 30px;
+  }
+  .right-hangman {
+    padding: 0;
+  }
+
+  .time-hangman {
+    font-size: 22px;
+    height: 40px;
+    width: 120px;
+    border: 5px solid red;
+  }
+}

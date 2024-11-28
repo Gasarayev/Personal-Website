@@ -1,0 +1,126 @@
+.click-game-section{
+    padding-top: 110px;
+}
+
+.click-game-section main {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+
+}
+
+.click-game-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+}
+
+h1 {
+  animation: slideIn 2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.click_game-btn{
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#startButton:hover {
+  transform: scale(1.1);
+}
+
+#clickButton {
+  width: 800px;
+  height: 400px;
+  transition: background-color 0.3s ease;
+}
+
+#clickButton.clicked {
+  background-color: #ff6347;
+}
+
+#score {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#timer {
+  font-size: 24px;
+  color: red;
+  margin-top: 20px;
+}
+
+/* Modal styles */
+.modalClick {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.922);
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.modalClick.show {
+  display: flex;
+}
+
+.modalClick h2 {
+  margin: 10px 0;
+}
+
+.modalClick button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.modalClick button:hover {
+  background-color: #45a049;
+}
+
+
+@media screen and (max-width: 900px) {
+
+    #clickButton {
+        width: 100%;
+        
+      }
+
+}

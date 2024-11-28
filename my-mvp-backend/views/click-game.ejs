@@ -1,221 +1,114 @@
-<!DOCTYPE html>
-<html lang="az">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="<%= metaDescription %>" />
-    <meta name="keywords" content="<%= metaKeywords %>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        margin-top: 50px;
-        background-color: black;
-        color: aquamarine;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-      }
+<% layout('layout') %>
 
-      main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 800px;
-        gap: 20px;
-      }
-
-      h1 {
-        animation: slideIn 2s ease-out;
-      }
-
-      @keyframes slideIn {
-        from {
-          transform: translateY(-50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      button {
-        padding: 15px 30px;
-        font-size: 20px;
-        background-color: transparent;
-        border: 1px solid white;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-      }
-
-      #startButton:hover {
-        transform: scale(1.1);
-      }
-
-      #clickButton {
-        width: 800px;
-        height: 400px;
-        transition: background-color 0.3s ease;
-      }
-
-      #clickButton.clicked {
-        background-color: #ff6347;
-      }
-
-      #score {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-
-      #timer {
-        font-size: 24px;
-        color: red;
-        margin-top: 20px;
-      }
-
-      /* Modal styles */
-      .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.922);
-        color: white;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .modal.show {
-        display: flex;
-      }
-
-      .modal h2 {
-        margin: 10px 0;
-      }
-
-      .modal button {
-        padding: 10px 20px;
-        font-size: 18px;
-        background-color: #4caf50;
-        border: none;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-      }
-
-      .modal button:hover {
-        background-color: #45a049;
-      }
-
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Click Game</h1>
-      <p id="score">Oyuna başlamaq üçün oyunu başlat buttonuna clickləyin</p>
-      <button id="clickButton" disabled>Click Earea</button>
-      <button id="startButton">Oyunu Başlat</button>
-      <p id="timer">Oyun müddəti: 30 saniyə</p>
-    </main>
-
-    <!-- Modal for game over -->
-    <div id="gameOverModal" class="modal">
-      <h2>Oyun Bitdi!</h2>
-      <p id="finalScore">Click sayınız: 0</p>
-      <button id="restartButton">Yenidən Başlat</button>
+<section class="click-game-section">
+  <main>
+    <div class="row m-0">
+      <div class="col-md-12 p-0">
+        <div class="click-game-body">
+          <h1>Click Game</h1>
+          <p id="score">
+            Oyuna başlamaq üçün oyunu başlat buttonuna clickləyin
+          </p>
+          <button class="click_game-btn" id="clickButton" disabled>Click Earea</button>
+          <button class="click_game-btn" id="startButton">Oyunu Başlat</button>
+          <p id="timer">Oyun müddəti: 30 saniyə</p>
+        </div>
+      </div>
     </div>
+  </main>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      const socket = io();
-      const clickButton = document.getElementById("clickButton");
-      const startButton = document.getElementById("startButton");
-      const scoreText = document.getElementById("score");
-      const timerText = document.getElementById("timer");
-      const gameOverModal = document.getElementById("gameOverModal");
-      const finalScore = document.getElementById("finalScore");
-      const restartButton = document.getElementById("restartButton");
+  <!-- Modal for game over -->
+  <div id="gameOverModal" class="modalClick">
+    <h2>Oyun Bitdi!</h2>
+    <p id="finalScore">Click sayınız: 0</p>
+    <button id="restartButton">Yenidən Başlat</button>
+  </div>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+  const clickButton = document.getElementById("clickButton");
+  const startButton = document.getElementById("startButton");
+  const scoreText = document.getElementById("score");
+  const timerText = document.getElementById("timer");
+  const gameOverModal = document.getElementById("gameOverModal");
+  const finalScore = document.getElementById("finalScore");
+  const restartButton = document.getElementById("restartButton");
 
-      let clicks = 0;
-      let colorIndex = 0;
-      const colors = [
-        "#ff6347", // Tomato
-        "#4682b4", // SteelBlue
-        "#32cd32", // LimeGreen
-        "#8a2be2", // BlueViolet
-        "#ff8c00", // DarkOrange
-        "#3cb371", // MediumSeaGreen
-        "#00ced1", // DarkTurquoise
-        "#f4a261", // Sand
-        "#2e8b57", // SeaGreen
-        "#d2691e", // Chocolate
-        "#ff1493", // DeepPink
-        "#00bfff", // DeepSkyBlue
-        "#ff4500", // OrangeRed
-        "#b0c4de", // LightSteelBlue
-        "#a52a2a", // Brown
-      ];
+  let clicks = 0;
+  let colorIndex = 0;
+  const colors = [
+    "#ff6347", 
+    "#4682b4",
+    "#32cd32", 
+    "#8a2be2",
+    "#ff8c00", 
+    "#3cb371", 
+    "#00ced1", 
+    "#f4a261", 
+    "#2e8b57", 
+    "#d2691e", 
+    "#ff1493", 
+    "#00bfff",
+    "#ff4500", 
+    "#b0c4de", 
+    "#a52a2a", 
+  ];
 
-      startButton.addEventListener("click", () => {
-        socket.emit("startGame");
-      });
+  startButton.addEventListener("click", () => {
+    socket.emit("startGame");
+  });
 
-      clickButton.addEventListener("click", () => {
-        socket.emit("click");
-        clicks++;
-        scoreText.textContent = `Siz ${clicks} dəfə klik etmisiniz.`;
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname === "/click-game") {
+      document.getElementById("footer").style.display = "none";
+    }
+  });
 
-        // Button klik edildikdə rəng dəyişsin
-        colorIndex = (colorIndex + 1) % colors.length;
-        clickButton.style.backgroundColor = colors[colorIndex];
+  clickButton.addEventListener("click", () => {
+    socket.emit("click");
+    clicks++;
+    scoreText.textContent = `Siz ${clicks} dəfə klik etmisiniz.`;
 
-        // Bir müddət sonra rəngi əvvəlki vəziyyətə qaytar
-        setTimeout(() => {
-          clickButton.style.backgroundColor = "transparent";
-        }, 500);
-      });
+   
+    colorIndex = (colorIndex + 1) % colors.length;
+    clickButton.style.backgroundColor = colors[colorIndex];
 
-      socket.on("gameStarted", () => {
-        clicks = 0;
-        scoreText.textContent = "Siz 0 dəfə klik etmisiniz.";
-        clickButton.disabled = false;
-        startButton.disabled = true;
-      });
+   
+    setTimeout(() => {
+      clickButton.style.backgroundColor = "transparent";
+    }, 500);
+  });
 
-      socket.on("clickUpdate", (updatedClicks) => {
-        scoreText.textContent = `Siz ${updatedClicks[socket.id] || 0} dəfə klik etmisiniz.`;
-      });
+  socket.on("gameStarted", () => {
+    clicks = 0;
+    scoreText.textContent = "Siz 0 dəfə klik etmisiniz.";
+    clickButton.disabled = false;
+    startButton.disabled = true;
+  });
 
-      socket.on("timeUpdate", (timeLeft) => {
-        timerText.textContent = `Qalan vaxt: ${timeLeft} saniyə`;
-      });
+  socket.on("clickUpdate", (updatedClicks) => {
+    scoreText.textContent = `Siz ${
+      updatedClicks[socket.id] || 0
+    } dəfə klik etmisiniz.`;
+  });
 
-      socket.on("gameEnded", (winner) => {
-        clickButton.disabled = true;
-        startButton.disabled = false;
-        finalScore.textContent = `Click sayınız: ${winner.maxClicks}`;
-        gameOverModal.classList.add("show");
-      });
+  socket.on("timeUpdate", (timeLeft) => {
+    timerText.textContent = `Qalan vaxt: ${timeLeft} saniyə`;
+  });
 
-      restartButton.addEventListener("click", () => {
-        socket.emit("restartGame");
-        gameOverModal.classList.remove("show");
-        scoreText.textContent = "Oyuna başlamaq üçün oyunu başlat buttonuna clickləyin";
-        timerText.textContent = "Oyun müddəti: 30 saniyə";
-      });
-    </script>
-  </body>
-</html>
+  socket.on("gameEnded", (winner) => {
+    clickButton.disabled = true;
+    startButton.disabled = false;
+    finalScore.textContent = `Click sayınız: ${winner.maxClicks}`;
+    gameOverModal.classList.add("show");
+  });
+
+  restartButton.addEventListener("click", () => {
+    socket.emit("restartGame");
+    gameOverModal.classList.remove("show");
+    scoreText.textContent =
+      "Oyuna başlamaq üçün oyunu başlat buttonuna clickləyin";
+    timerText.textContent = "Oyun müddəti: 30 saniyə";
+  });
+</script>

@@ -120,6 +120,7 @@ app.get("/click-game", (req, res) => {
     metaDescription: "Sadə klik oyunu - klik etdikcə skoru artırın.",
     metaKeywords: "Click Game, Oyun",
     canonicalUrl,
+    showFooter: false
   });
 });
 
