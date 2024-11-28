@@ -6,16 +6,21 @@ const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
 const engine = require("ejs-mate");
+const http = require("http");
+const socketIo = require("socket.io");
 
 const app = express();
 const PORT = 3000;
+const server = http.createServer(app);
+const io = socketIo(server);
+require("./click-game")(io);
 
 // Middleware and Configuration
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", engine);
 app.use(express.static(path.join(__dirname, "public")));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
@@ -53,21 +58,21 @@ function getBlogs() {
 }
 
 function formatTitleForUrl(title) {
-  if (!title) return '';
+  if (!title) return "";
   return title
 
     .toLowerCase()
-    .replace(/[ş]/g, 's')
-    .replace(/[ə]/g, 'e')  
-    .replace(/[ı]/g, 'i')  
-    .replace(/[ğ]/g, 'g')  
-    .replace(/[ü]/g, 'u')  
-    .replace(/[ö]/g, 'o')  
-    .replace(/[ç]/g, 'c')  
-    .replace(/\s+/g, '-')   
-    .replace(/[^\w\-]+/g, '') 
-    .replace(/--+/g, '-')  
-    .trim('-');  
+    .replace(/[ş]/g, "s")
+    .replace(/[ə]/g, "e")
+    .replace(/[ı]/g, "i")
+    .replace(/[ğ]/g, "g")
+    .replace(/[ü]/g, "u")
+    .replace(/[ö]/g, "o")
+    .replace(/[ç]/g, "c")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/--+/g, "-")
+    .trim("-");
 }
 
 // Routes
@@ -107,6 +112,31 @@ app.get("/contact", (req, res) => {
   });
 });
 
+// Click Game Route
+app.get("/click-game", (req, res) => {
+  const canonicalUrl = "http://localhost:3000/click-game";
+  res.render("click-game", {
+    title: "Click Game - Emil Gasarayev",
+    metaDescription: "Sadə klik oyunu - klik etdikcə skoru artırın.",
+    metaKeywords: "Click Game, Oyun",
+    canonicalUrl,
+  });
+});
+
+// Hangman Game Route
+app.get("/hangman", (req, res) => {
+  const canonicalUrl = "http://localhost:3000/hangman";
+  res.render("hangman", {
+    title: "Hangman Game - Emil Gasarayev",
+    metaDescription: "Play Hangman Game and guess the hidden word!",
+    metaKeywords: "Hangman, Game, Word Guess",
+    canonicalUrl,
+    showFooter: false
+  });
+
+  
+});
+
 // Blog List Route
 app.get("/blog", (req, res) => {
   const canonicalUrl = "http://localhost:3000/blog";
@@ -118,17 +148,13 @@ app.get("/blog", (req, res) => {
     blogs,
     canonicalUrl,
   });
-
-  
 });
 
 // Blog Details Route
 app.get("/blog/:title", (req, res) => {
   const canonicalUrl = `http://localhost:3000/blog/${req.params.title}`;
   const blogs = getBlogs();
-  const blog = blogs.find(b =>
-    b.formattedTitle === req.params.title
-  );
+  const blog = blogs.find((b) => b.formattedTitle === req.params.title);
 
   if (blog) {
     const shortMetaDescription = blog.metaDescription.substring(0, 160);
@@ -187,11 +213,17 @@ app.get("/admin", (req, res) => {
   }
 });
 
-
-
 // Blog Creation Route for Admin
-app.post("/admin/blog/create", upload.single('image1'), (req, res) => {
-  const { title, content, subtitle, content_subtitle, faq, youtube_link, meta_description } = req.body;
+app.post("/admin/blog/create", upload.single("image1"), (req, res) => {
+  const {
+    title,
+    content,
+    subtitle,
+    content_subtitle,
+    faq,
+    youtube_link,
+    meta_description,
+  } = req.body;
   const image = req.file ? req.file.filename : null;
 
   const formattedTitle = formatTitleForUrl(title);
@@ -233,6 +265,6 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server çalışır: http://localhost:${PORT}`);
+server.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });

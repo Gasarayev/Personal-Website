@@ -1,0 +1,222 @@
+<% layout('layout') %>
+<section class="hangman-section">
+  <div class="container container-hangman">
+    <div class="row">
+      <div class="port_heading col-md-12">
+        <h1><span>Gasarayev Emil</span>'s Hangman Game</h1>
+      </div>
+
+      <div class="animation-hangman col-md-6">
+        <!-- Burada animasiya və ya şəkil yerləşə bilər -->
+      </div>
+
+      <div class="right-hangman col-md-6">
+        <h3>
+          Aşağıdakı Frontend və Backend sahələrindən birinə aid olan sözü tapın
+        </h3>
+        <div class="secret-hangman"></div>
+
+        <div class="letters-hangman"></div>
+
+        <button class="btn-hangman">Start</button>
+      </div>
+    </div>
+
+    <div class="time-hangman col-md-12"></div>
+  </div>
+
+  <div class="modal">
+    <div class="modal-message"></div>
+  </div>
+</section>
+
+<script>
+  let letDiv = document.querySelector(".letters-hangman");
+
+  let letters = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+    ".",
+  ];
+
+  letters.forEach((e) => {
+    letDiv.innerHTML += `<div class="letter">${e}</div>`;
+  });
+
+  let btn = document.querySelector(".right-hangman button");
+  let secretDiv = document.querySelector(".secret-hangman");
+  let btns = document.querySelectorAll(".letter");
+  let animation = document.querySelector(".animation-hangman");
+  let time = document.querySelector(".time-hangman");
+  let modal = document.querySelector(".modal");
+  let modalMessage = document.querySelector(".modal-message");
+
+  let active = true;
+  let words = [
+    "ajax",
+    "api",
+    "css",
+    "grid",
+    "flexbox",
+    "dom",
+    "html",
+    "javascript",
+    "jquery",
+    "json",
+    "react",
+    "redux",
+    "responsivedesign",
+    "sass",
+    "tailwind css",
+    "typescript",
+    "ui",
+    "ux",
+    "vue.js",
+    "webpack",
+    "bootstrap",
+    "material ui",
+    "animation",
+    "font awesome",
+    "micro frontends",
+    "web performance",
+    "api",
+    "authentication",
+    "authorization",
+    "backendframework",
+    "database",
+    "docker",
+    "express.js",
+    "framework",
+    "graphql",
+    "laravel",
+    "mongodb",
+    "node.js",
+    "oauth",
+    "restapi",
+    "sql",
+    "redis",
+    "server",
+    "session",
+    "socket.io",
+    "webserver",
+    "websocket",
+    "php",
+    "mysql",
+    "swift",
+  ];
+
+  let word = null;
+  let seconds = 50;
+  let minutes = 1;
+  let count = 0;
+  let timerInterval = null;
+
+  let winAudio = new Audio("../audio/laugh.mp3");
+  let loseAudio = new Audio("../audio/cry.mp3");
+  let thrillerAudio = new Audio("../audio/thriller.mp3");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname === "/hangman") {
+      document.getElementById("footer").style.display = "none";
+    }
+  });
+
+  function stopGame(message, isWin) {
+    clearInterval(timerInterval);
+    if (isWin) {
+      winAudio.play();
+    } else {
+      loseAudio.play();
+    }
+    modal.style.display = "block";
+    modalMessage.textContent = message;
+    thrillerAudio.pause();
+  }
+
+  function timer() {
+    timerInterval = setInterval(() => {
+      time.innerHTML = minutes + ":" + seconds;
+      if (seconds > 0) {
+        seconds--;
+      }
+      if (seconds == 0 && minutes != 0) {
+        seconds = 60;
+        minutes--;
+      }
+      if (minutes == 0 && seconds == 0) {
+        stopGame("Time's up! You lost!", false);
+      }
+    }, 1000);
+  }
+
+  btn.addEventListener("click", () => {
+    if (active) {
+      word = words[Math.floor(Math.random() * words.length)].toUpperCase();
+      console.log(word);
+      writeLetters();
+      timer();
+      btn.style.backgroundColor = "red";
+      thrillerAudio.loop = true;
+      thrillerAudio.play();
+    }
+    active = false;
+  });
+
+  function writeLetters() {
+    for (let i = 0; i < word.length; i++) {
+      secretDiv.innerHTML += `<div class="let"></div>`;
+    }
+    let divs = document.querySelectorAll(".let");
+
+    btns.forEach((letterBtn) => {
+      letterBtn.addEventListener("click", (e) => {
+        let isActive = false;
+
+        for (let i = 0; i < word.length; i++) {
+          if (e.target.textContent.toUpperCase() == word[i]) {
+            divs[i].innerHTML = word[i];
+            isActive = true;
+          }
+        }
+
+        if (!isActive && count < 7) {
+          letterBtn.style.backgroundColor = "red";
+          animation.style.backgroundImage = `url(./hangmanImg/hangman-${count}.svg)`;
+          count++;
+        }
+
+        if (count == 7) {
+          stopGame("Game Over! You lost!", false);
+        }
+
+        if (Array.from(divs).every((div) => div.innerHTML !== "")) {
+          stopGame("Congratulations! You won!", true);
+        }
+      });
+    });
+  }
+</script>

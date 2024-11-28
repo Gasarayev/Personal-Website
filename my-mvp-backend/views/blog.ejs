@@ -1,15 +1,18 @@
 <% layout('layout') %>
 <main>
-  <section class="blog-list section-padding bg-dark" data-scroll-index="6">
+  <section class="blogPage-list section-padding bg-dark" data-scroll-index="6">
     <h1>Blog Yazıları</h1>
-    <ul>
+    <ul class="blogs-card">
       <% blogs.forEach(function(blog) { %>
-        <li>
-          <a href="/blog/<%= blog.formattedTitle %>">
-            <h2><%= blog.title %></h2> 
-            <p><%= blog.content.substring(0, 100) %>...</p> 
-          </a>
-        </li>
+      <li class="card-self">
+        <a href="/blog/<%= blog.formattedTitle %>">
+          <img src="/uploads/<%= blog.image1 %>" alt="<%= blog.title %>" />
+          <div class="card-self-content">
+            <h2><%= blog.title %></h2>
+            <p><%= blog.content.substring(3, 100) %>...</p>
+          </div>
+        </a>
+      </li>
       <% }); %>
     </ul>
   </section>
